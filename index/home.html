@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Task Manager</title>
+    <link rel="stylesheet" href="/client/style.css" />
+    <!-- Optional CSS -->
+  </head>
+  <body>
+    <header>
+      <a href="home.html"
+        ><img src="/client/images/mankind4dev.png" alt="logo"
+      /></a>
+      <div class="searchForm">
+        <form>
+          <input type="search" name="" id="" placeholder="Search here..." />
+          <i class="fa-duotone fa-solid fa-magnifying-glass"></i>
+        </form>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="tasks.html">Task</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+    <nav>
+      <ul id="navLinks">
+        <li id="loginNav"><a href="login.html">Login</a></li>
+        <li id="tasksNav" style="display: none">
+          <a href="tasks.html">Create Task</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="containerHome">
+      <div id="home">
+        <h1>Welcome to the Task Manager</h1>
+        <h2>Your Tasks</h2>
+        <ul id="taskList"></ul>
+      </div>
+    </div>
+
+    <footer>
+      <p><span>mankind</span><span>4dev</span> © 2024. All right reserved</p>
+    </footer>
+
+    <!-- <script>
+      const taskList = document.getElementById("taskList");
+
+      // Fetch tasks dynamically
+      async function fetchTasks() {
+        const token = localStorage.getItem("token");
+        try {
+          const res = await fetch("http://localhost:3000/api/task/create", {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`, // Include token for authentication
+            },
+          });
+
+          if (res.ok) {
+            const tasks = await res.json();
+            taskList.innerHTML = ""; // Clear existing tasks
+
+            // Map tasks to the list
+            tasks.forEach((task) => {
+              const listItem = document.createElement("li");
+              listItem.innerHTML = `
+                <span>${task.title} - ${task.description} (Priority: ${task.priority}, Due: ${task.deadline})</span>
+                <button onclick="updateTask('${task.id}')">Update</button>
+                <button onclick="deleteTask('${task.id}')">Delete</button>
+              `;
+              taskList.appendChild(listItem);
+            });
+          } else {
+            alert("Failed to fetch tasks. Please try again.");
+          }
+        } catch (error) {
+          console.error("Error fetching tasks:", error);
+          alert("An error occurred while fetching tasks.");
+        }
+      }
+
+      // Update task
+      async function updateTask(taskId) {
+        const updatedTitle = prompt("Enter the updated task title:");
+        const updatedDescription = prompt("Enter the updated task description:");
+        const updatedDeadline = prompt("Enter the updated deadline (YYYY-MM-DD):");
+        const updatedPriority = prompt("Enter the updated priority (Low, Medium, High):");
+
+        if (updatedTitle && updatedDescription && updatedDeadline && updatedPriority) {
+          const token = localStorage.getItem("token");
+          try {
+            const res = await fetch(`http://localhost:3000/api/task/update/${taskId}`, {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+              body: JSON.stringify({
+                title: updatedTitle,
+                description: updatedDescription,
+                deadline: updatedDeadline,
+                priority: updatedPriority,
+              }),
+            });
+
+            if (res.ok) {
+              alert("Task updated successfully!");
+              fetchTasks(); // Refresh tasks
+            } else {
+              alert("Error updating task.");
+            }
+          } catch (error) {
+            console.error("Error updating task:", error);
+          }
+        }
+      }
+
+      // Delete task
+      async function deleteTask(taskId) {
+        const confirmDelete = confirm("Are you sure you want to delete this task?");
+        if (confirmDelete) {
+          const token = localStorage.getItem("token");
+          try {
+            const res = await fetch(`http://localhost:3000/api/task/delete/${taskId}`, {
+              method: "DELETE",
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            });
+
+            if (res.ok) {
+              alert("Task deleted successfully!");
+              fetchTasks(); // Refresh tasks
+            } else {
+              alert("Error deleting task.");
+            }
+          } catch (error) {
+            console.error("Error deleting task:", error);
+          }
+        }
+      }
+
+      // Fetch tasks on page load
+      document.addEventListener("DOMContentLoaded", fetchTasks);
+    </script> -->
+  </body>
+</html>

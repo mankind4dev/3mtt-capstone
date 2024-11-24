@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Task - Task Manager</title>
+    <link rel="stylesheet" href="/client/style/tasks.css" /> 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sofia&family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <img src="/client/images/mankind4dev.png" alt="logo" />
+        <ul id="navLinks">
+          <li><a href="home.html">Home</a></li>
+          <li id="loginNav"><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="containTask">
+      <div class="box" id="tasks">
+        <h1>Create a Task</h1>
+        <form id="taskForm">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required />
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" required></textarea>
+          <label for="deadline">Deadline:</label>
+          <input type="date" id="deadline" name="deadline" required />                              
+          <label for="priority">Priority:</label>
+          <select id="priority" name="priority" required>
+            <option value="">Select your</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+          <button type="submit">Create Task</button>
+        </form>
+      </div>
+
+      .
+    </div>
+
+    <!-- <script>
+      const API_URL = "http://localhost:3000/api/task";
+      const taskForm = document.getElementById("taskForm");
+
+      taskForm.onsubmit = async (e) => {
+        e.preventDefault();
+        const token = localStorage.getItem("token");
+        if (!token) {
+          alert("Please log in first.");
+          window.location.href = "login.html";
+          return;
+        }
+
+        const title = document.getElementById("title").value;
+        const description = document.getElementById("description").value;
+        const deadline = document.getElementById("deadline").value;
+        const priority = document.getElementById("priority").value;
+
+        const res = await fetch(`${API_URL}/create`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ title, description, deadline, priority }),
+        });
+
+        if (res.ok) {
+          alert("Task created successfully!");
+          window.location.href = "home.html";
+        } else {
+          alert("Failed to create task. Please try again.");
+        }
+      };
+    </script> -->
+  </body>
+</html>

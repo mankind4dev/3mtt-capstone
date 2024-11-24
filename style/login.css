@@ -1,0 +1,179 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Inta";
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: rgb(237, 232, 232);
+    padding: 30px 40px;
+    box-shadow: 5px 2px 5px #333;
+}
+
+header nav{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+nav ul{
+    display: flex;
+    align-items: center;
+}
+
+nav li{
+    list-style: none;
+}
+
+nav ul li a{
+    font-size: 35px;
+    margin-right: 25px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #333;
+}
+
+header img{
+    width: 100px;
+    align-items: center;
+}
+
+ .searchForm{
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 15px;
+}
+
+header form{
+    width: 100%;
+    display: flex; 
+    align-items: center; 
+    background-color: transparent; 
+}
+
+header form input{
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 30px;
+    outline: none;
+    border: none;
+}
+
+.searchForm form i{
+    font-size: 20px;
+    padding: 15px;
+    outline: none;
+    border: none;
+    cursor: pointer; 
+    color: slategray;
+}
+
+nav{
+    display: flex;
+}
+
+
+.container{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    /* flex-grow: 1; */
+    height: 100vh;
+    background-color: #333; 
+}
+
+.container main{
+    display: flex;
+    flex-direction: column;  
+    width: 800px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px; 
+}
+.container main h1{ 
+    font-size: 40px;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+}
+
+.container .history{ 
+    font-size: 20px;
+    margin-top: 2px;
+}
+ 
+
+.container main form{ 
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.container main p{ 
+    font-size: 20px;
+    margin-top: 20px;
+}
+.container main p a{ 
+    text-decoration: none;
+    text-transform: capitalize;
+}
+.container main p a:hover{ 
+    text-decoration: underline;
+}
+
+ main form label{
+    font-size: 30px;
+    margin-bottom: 3px;
+}
+
+main form button{
+    font-size: 30px;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+main form input{
+    font-size: 20px;
+    padding:  15px; 
+    margin-bottom: 20px;
+    outline: none;
+    border-radius: 4px;
+}
+
+
+
+
+
+
+
+
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: auto;
+    bottom: 0;
+    background-color: rgb(237, 232, 232);
+    padding: 12px;
+}
+
+footer p{
+    font-size: 25px;
+    color: #333;
+    text-transform: capitalize;
+}
+
+footer span:first-child{
+   color: blue;
+}
+footer span:last-child{
+   color: gold;
+}
