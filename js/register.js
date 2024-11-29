@@ -7,7 +7,7 @@ taskForm.onsubmit = async (e) => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  const res = await fetch("http://localhost:3000/api/auth/signup", {
+  const res = await fetch("http://localhost:5000/api/auth/signup", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, email, password }),

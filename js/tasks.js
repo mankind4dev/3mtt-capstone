@@ -4,29 +4,38 @@ const loginNav = document.getElementById("loginNav");
 const tasksNav = document.getElementById("tasksNav");
 
 
-taskForm.onsubmit = async (e) => { 
-  e.preventDefault();
-  const token = localStorage.getItem("token");
-  const title = document.getElementById("title").value;
-  const description = document.getElementById("description").value;
-  const deadline = document.getElementById("deadline").value;
-  const priority = document.getElementById("priority").value;
+document.addEventListener("DOMContentLoaded", () => {
+  const taskList = document.getElementById("taskList");
+  
+  if (taskList) {
+    taskList.onsubmit = async (e) => {
+      e.preventDefault();
+      const token = localStorage.getItem("token");
+      const title = document.getElementById("title").value;
+      const description = document.getElementById("description").value;
+      const deadline = document.getElementById("deadline").value;
+      const priority = document.getElementById("priority").value;
 
-  await fetch("http://localhost:3000/api/task/create", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify({ title, description, deadline, priority }),
-  });
+      await fetch("http://localhost:5000/api/task/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ title, description, deadline, priority }),
+      });
 
-  fetchTasks();
-};
+      fetchTasks();
+    };
+  } else {
+    console.error("taskList element not found in the DOM.");
+  }
+});
+
 
 async function fetchTasks() {
   const token = localStorage.getItem("token");
-  const res = await fetch("http://localhost:3000/api/task/create", {
+  const res = await fetch("http://localhost:5000/api/task/create", {
     headers: { Authorization: `Bearer ${token}` },
   });
 
@@ -48,7 +57,7 @@ async function fetchTasks() {
     return;
   }
 
-  const res = await fetch("http://localhost:3000/api/task/list", {
+  const res = await fetch("http://localhost:5000/api/task/list", {
     headers: { Authorization: `Bearer ${token}` },
   });
 
@@ -57,11 +66,19 @@ async function fetchTasks() {
     taskList.innerHTML = tasks
       .map(
         (task) =>
-          `<li>
-            <strong>${task.title}</strong> (${task.priority})
-            <p>${task.description}</p>
-            <small>Deadline: ${new Date(task.deadline).toLocaleDateString()}</small>
-          </li>`
+          `<div class="task">
+            <h1>${task.title}</h1>
+            <p>
+               ${task.description}
+            </p>
+            <p class="span">Deadline: ${new Date(task.deadline).toLocaleDateString()}</p>
+            <h6>${task.priority}</h6>
+          </div>`
+          // `<li>
+          //   <strong>${task.title}</strong> (${task.priority})
+          //   <p>${task.description}</p>
+          //   <small>Deadline: ${new Date(task.deadline).toLocaleDateString()}</small>
+          // </li>`
       )
       .join("");
   } else {

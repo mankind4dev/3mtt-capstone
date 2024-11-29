@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Task Manager</title>
-    <link rel="icon" href="/client/images/mankind4dev.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css" />
-
+    <link
+      rel="icon"
+      href="/client/images/mankind4dev.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/client/style.css" />
   </head>
   <body>
     <header>
@@ -36,10 +39,26 @@
     </nav>
 
     <div class="containerHome">
-      <div id="home">
-        <h1>Welcome to the Task Manager</h1>
-        <h2>Your Tasks</h2>
-        <ul id="taskList"></ul>
+      <div class="wrap">
+        <div class="home">
+          <h1>Welcome to the Task Manager</h1>
+          <h3>Your Tasks</h3>
+        </div>
+        <div id="taskList" class="tasks">
+          <!-- <div class="task">
+            <h1>Task Title</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, quos
+              dolore, adipisci earum accusantium praesentium incidunt dolorum
+              non iure cumque labore quasi nulla enim doloribus ullam quia
+              exercitationem. Distinctio magnam maiores voluptatibus adipisci
+              sint architecto veritatis laudantium atque, laborum, nisi pariatur
+              ipsum accusamus et quibusdam a eligendi in eaque libero!
+            </p>
+            <p class="span">task Deadline</p>
+            <h6>Task Priority</h6>
+          </div> -->
+        </div>
       </div>
     </div>
 
@@ -148,5 +167,6 @@
       // Fetch tasks on page load
       document.addEventListener("DOMContentLoaded", fetchTasks);
     </script> -->
+    <script src="/client/js/tasks.js"></script>
   </body>
 </html>

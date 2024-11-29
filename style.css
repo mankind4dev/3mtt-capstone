@@ -78,8 +78,48 @@ nav {
 }
 
 .containerHome {
-  flex-grow: 1;
-  height: 100vh;
+  min-height: 100vh;
+  max-height: 100%;
+  flex-grow: 1; 
+}
+
+.wrap {
+  padding: 20px;
+}
+
+.home h1{
+  margin-bottom: 10px;
+}
+
+.home h3 {
+  border-bottom: 1px solid gray;
+  margin-bottom: 1rem;
+  padding-bottom: 5px;
+}
+
+.tasks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; 
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.task{
+  width: 300px;
+  border: 2px solid gray;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.tasks h1,
+p,
+h4 {
+  padding-bottom: 5px;
+}
+.span {
+  padding-bottom: 5px;
+  color: grey;
 }
 
 footer {
